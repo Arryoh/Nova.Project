@@ -1,0 +1,212 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+/* ---------- COLOR THEMES ---------- */
+:root {
+  --bg-color: #0a0a0a;
+  --text-color: #ffffff;
+  --accent: #00ffe0;
+  --menu-bg: rgba(0, 0, 0, 0.95);
+}
+
+.light-mode {
+  --bg-color: #f9f9f9;
+  --text-color: #111111;
+  --accent: #0077ff;
+  --menu-bg: rgba(255, 255, 255, 0.95);
+}
+
+/* ---------- BASE STYLES ---------- */
+body {
+  font-family: 'Poppins', sans-serif;
+  background: var(--bg-color);
+  color: var(--text-color);
+  transition: background 0.4s, color 0.4s;
+}
+
+/* ---------- HEADER ---------- */
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 30px;
+  background: rgba(0,0,0,0.4);
+  z-index: 10;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+/* ---------- LIGHT/DARK TOGGLE ---------- */
+.mode-toggle {
+  background: none;
+  border: none;
+  color: var(--accent);
+  font-size: 20px;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+.mode-toggle:hover {
+  transform: scale(1.1);
+}
+
+/* ---------- HAMBURGER MENU ---------- */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background: var(--accent);
+  border-radius: 2px;
+  transition: 0.3s;
+}
+
+/* ---------- NAVIGATION ---------- */
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+}
+nav a {
+  text-decoration: none;
+  color: var(--text-color);
+  transition: 0.3s;
+}
+nav a:hover {
+  color: var(--accent);
+}
+
+/* ---------- HERO SECTION ---------- */
+.hero {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+#bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+.hero h1 {
+  font-size: 3em;
+  margin-bottom: 10px;
+}
+
+.hero h1 span {
+  color: var(--accent);
+}
+
+.hero p {
+  font-size: 1.2em;
+  margin-bottom: 20px;
+  opacity: 0.9;
+}
+
+/* ---------- BUTTONS ---------- */
+button {
+  background: var(--accent);
+  color: #000;
+  padding: 12px 30px;
+  border: none;
+  border-radius: 25px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+button:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
+
+/* ---------- CONTENT SECTIONS ---------- */
+.about, .contact {
+  padding: 80px 20px;
+  text-align: center;
+  background: rgba(255,255,255,0.02);
+}
+
+.about h2, .contact h2 {
+  color: var(--accent);
+  margin-bottom: 15px;
+}
+
+/* ---------- FOOTER ---------- */
+footer {
+  background: #000;
+  text-align: center;
+  padding: 20px;
+  font-size: 0.9em;
+}
+
+/* ---------- SCROLL REVEAL ANIMATION ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+}
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---------- RESPONSIVE STYLES ---------- */
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    position: fixed;
+    top: 70px;
+    right: -100%;
+    background: var(--menu-bg);
+    width: 200px;
+    height: calc(100vh - 70px);
+    padding-top: 20px;
+    transition: right 0.3s ease;
+  }
+
+  /* Menu visible */
+  nav ul.show {
+    right: 0;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  /* Fix menu link visibility in both modes */
+  .light-mode nav a {
+    color: #111111;
+  }
+  .light-mode nav a:hover {
+    color: var(--accent);
+  }
+}

@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #0a0a0a;
+  color: #fff;
+  overflow: hidden;
+}
+
+canvas#loginBg {
+  position: fixed;
+  top:0; left:0;
+  width:100%; height:100%;
+  z-index:0;
+}
+
+/* AUTH CONTAINER */
+.auth-container {
+  position: relative;
+  z-index: 2;
+  max-width: 400px;
+  margin: 80px auto;
+  padding: 40px;
+  background: rgba(0,0,0,0.7);
+  border-radius: 15px;
+  box-shadow: 0 0 20px #00ffe0;
+  text-align: center;
+}
+
+.auth-container h1 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  color: #00ffe0;
+}
+
+/* INPUT GROUPS */
+.input-group {
+  position: relative;
+  margin-bottom: 25px;
+}
+.input-group input {
+  width: 100%;
+  padding: 12px 40px 12px 10px;
+  border: 2px solid #00ffe0;
+  border-radius: 8px;
+  background: transparent;
+  color: #fff;
+  font-size: 1em;
+  outline: none;
+}
+.input-group label {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: #aaa;
+  transition: 0.3s;
+}
+.input-group input:focus + label,
+.input-group input:not(:placeholder-shown) + label {
+  top: -10px;
+  left: 10px;
+  font-size: 0.8em;
+  color: #00ffe0;
+  background: rgba(0,0,0,0.7);
+  padding: 0 4px;
+}
+
+/* PASSWORD TOGGLE */
+.toggle-password {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #00ffe0;
+  font-size: 1.1em;
+  opacity: 0.8;
+  transition: 0.3s;
+}
+.toggle-password:hover {
+  opacity: 1;
+  transform: translateY(-50%) scale(1.1);
+}
+
+/* BUTTONS */
+button.btn {
+  width: 100%;
+  padding: 12px 0;
+  border: none;
+  border-radius: 25px;
+  font-weight: 600;
+  font-size: 1em;
+  background: #00ffe0;
+  color: #000;
+  cursor: pointer;
+  transition: 0.3s;
+}
+button.btn:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
+
+/* LINKS */
+.auth-container p {
+  margin-top: 15px;
+  font-size: 0.9em;
+}
+.auth-container a {
+  color: #00ffe0;
+  text-decoration: none;
+}
+.auth-container a:hover {
+  text-decoration: underline;
+}
+
+/* INLINE MESSAGES */
+.auth-container .msg {
+  margin-top: 10px;
+  font-size: 0.9em;
+  font-weight: 500;
+  color: #ff5555;
+  text-align: center;
+  animation: fadeIn 0.5s ease-in-out;
+}
+.auth-container .msg.success {
+  color: #00ffcc;
+}
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(-5px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* RESPONSIVE */
+@media(max-width:480px){
+  .auth-container { margin: 50px 20px; padding: 30px; }
+}

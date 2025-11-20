@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login | Nova</title>
+  <link rel="stylesheet" href="../stylesheets/login.css">
+</head>
+<body>
+  <canvas id="loginBg"></canvas>
+  <div class="auth-container">
+    <h1>Login</h1>
+    <form id="loginForm">
+      <div class="input-group">
+        <input type="email" id="email" required placeholder=" ">
+        <label for="email">Email</label>
+      </div>
+      <div class="input-group">
+        <input type="password" id="password" required placeholder=" ">
+        <label for="password">Password</label>
+        <span class="toggle-password" onclick="togglePassword('password', this)">👁️</span>
+      </div>
+      <button type="submit" class="btn">Login</button>
+    </form>
+    <p>Don't have an account? <a href="signup.html">Signup</a></p>
+  </div>
+  <script src="../scripts/login.js"></script>
+</body>
+</html>
